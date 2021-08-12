@@ -64,6 +64,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "foro_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.domain = 'https://foro.cryptostore.com.bo'
+  config.force_ssl = true
 
   #Mailer configuration
   config.action_mailer.default_url_options = { :host => "https://foro.cryptostore.com.bo" }
