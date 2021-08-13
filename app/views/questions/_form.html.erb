@@ -11,17 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <br>
+  <div>
+    <%= form.submit 'Enviar', :class => 'btn btn-large btn-primary' %>
   </div>
 <% end %>

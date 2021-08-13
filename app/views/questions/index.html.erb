@@ -1,29 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-9">
+    <div class="panel top">
+      <div class="panel-header">
+        <strong>Preguntas</strong>
+      </div>
+      <div class="panel-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Pregunta</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
 
-<h1>Questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.title %></td>
-        <td><%= question.description %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Question', new_question_path %>
+          <tbody>
+            <% @questions.each do |question| %>
+              <tr>
+                <td><%= question.title %></td>
+                <td>
+                  <%= link_to question do %>
+                  <span class="glyphicon glyphicon-eye-open"></span>
+                  <% end %>
+                  <%= link_to edit_question_path(question) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  <%= link_to question, method: :delete, data: { confirm: 'Are you sure?'}  do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+        <%= link_to 'Nueva pregunta', new_question_path, :class => 'btn btn-large btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>

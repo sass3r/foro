@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions or /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.order(created_at: :desc)
   end
 
   # GET /questions/1 or /questions/1.json
@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
   # POST /questions or /questions.json
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
 
     respond_to do |format|
       if @question.save
@@ -64,6 +65,6 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.require(:question).permit(:title, :description, :user_id, :integer)
+      params.require(:question).permit(:title, :user_id)
     end
 end

@@ -1,6 +1,20 @@
-<h1>Editing Question</h1>
-
-<%= render 'form', question: @question %>
-
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+<div class="row">
+  <div class="col-lg-9">
+    <div class="panel top">
+      <div class="panel-header">
+        <strong>Editar pregunta</strong>
+      </div>
+      <div class="panel-content">
+        <%= render 'form', question: @question %>
+        <br>
+        <%= link_to @question do %>
+        <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        |
+        <%= link_to questions_path do %>
+        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
